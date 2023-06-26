@@ -1,11 +1,9 @@
-using TMPro;
 using UnityEngine;
 
 public class PushTheNum : MonoBehaviour
 {
     #region Variables
 
-    public TMP_Text myText;
     private int _step;
     private int _sum;
 
@@ -22,7 +20,7 @@ public class PushTheNum : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            SumNumbers();
+            CalculateSumNumbers();
             Debug.Log("Сумма: " + _sum);
         }
 
@@ -33,7 +31,7 @@ public class PushTheNum : MonoBehaviour
 
         else if (_sum > 50)
         {
-            EndSum();
+            FinalSumCalculate();
             Debug.Log($"Сумма {_sum}! Игра окончена. Колличество ходов {_step}");
         }
     }
@@ -42,14 +40,7 @@ public class PushTheNum : MonoBehaviour
 
     #region Private methods
 
-    private int EndSum()
-    {
-        int endSum = _sum - 50;
-        _sum -= endSum;
-        return _sum;
-    }
-
-    private void SumNumbers()
+    private void CalculateSumNumbers()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -97,6 +88,13 @@ public class PushTheNum : MonoBehaviour
             _sum += 9;
             _step++;
         }
+    }
+
+    private int FinalSumCalculate()
+    {
+        int endSum = _sum - 50;
+        _sum -= endSum;
+        return _sum;
     }
 
     #endregion

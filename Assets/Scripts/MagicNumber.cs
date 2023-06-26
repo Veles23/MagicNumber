@@ -10,7 +10,7 @@ public class MagicsNumb : MonoBehaviour
     public int min;
     public TMP_Text otherText;
     private int _guess;
-    private int _numberOfHalls;
+    private int _numberOfSteps;
 
     #endregion
 
@@ -34,21 +34,21 @@ public class MagicsNumb : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            _numberOfHalls++;
+            _numberOfSteps++;
             max = _guess;
             CalculateGuess();
             AskGuess();
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            _numberOfHalls++;
+            _numberOfSteps++;
             min = _guess;
             CalculateGuess();
             AskGuess();
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {
-            otherText.text = $"Хе-хе! Твоё число {_guess}! Колличество ходов: {_numberOfHalls}.";
+            otherText.text = $"Хе-хе! Твоё число {_guess}! Колличество ходов: {_numberOfSteps}.";
         }
     }
 
